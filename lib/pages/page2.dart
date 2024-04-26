@@ -43,6 +43,18 @@ class SykoRoute extends StatelessWidget {
                     color: Colors.white),
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            _buildInfoCard('Απλό', '5 άτομα', '110€'),
+            const SizedBox(
+              height: 20,
+            ),
+            _buildInfoCard('Special', '5 άτομα', '120€'),
+            const SizedBox(
+              height: 20,
+            ),
+            _buildInfoCard('Premium', '5 άτομα', '160€'),
           ]),
         ]));
   }
@@ -68,4 +80,62 @@ class BlastRoute extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildInfoCard(String sectionTitle, String description, String number) {
+  return Card(
+    color: const Color(0xFF9c0c04),
+    child: Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            flex: 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  sectionTitle,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  description,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(), // This is an empty container to add spacing
+          ),
+          Expanded(
+            flex: 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  number,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
